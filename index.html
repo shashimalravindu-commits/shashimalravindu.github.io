@@ -86,19 +86,20 @@
             margin: 0 auto;
         }
 
+        /* PERFECT CIRCLE with better image cropping */
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            background: white;
             margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
-            color: #667eea;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            display: block;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            border: 5px solid white;
+            object-fit: cover;
+            /* Adjust these values to position your face better in the circle */
+            object-position: center 20%;
+            /* This zooms in slightly to crop better */
+            transform: scale(1.1);
         }
 
         .hero h1 {
@@ -135,17 +136,21 @@
             color: white;
         }
 
+        /* FIXED: Proper centering for all sections */
         section {
             padding: 80px 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .section-white {
             background: white;
-            margin: 2rem;
+            margin: 2rem auto;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            width: calc(100% - 4rem);
         }
 
         h2 {
@@ -160,6 +165,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
+            padding: 0 2rem;
         }
 
         .about-text p {
@@ -172,6 +178,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
+            padding: 0 2rem;
         }
 
         .skill-item {
@@ -192,6 +199,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            padding: 0 2rem;
         }
 
         .project-card {
@@ -247,6 +255,7 @@
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .contact-content p {
@@ -285,9 +294,11 @@
             background: rgba(255, 255, 255, 0.95);
             text-align: center;
             padding: 2rem;
-            margin: 2rem;
+            margin: 2rem auto;
             border-radius: 20px;
             color: #666;
+            max-width: 1200px;
+            width: calc(100% - 4rem);
         }
 
         @media (max-width: 768px) {
@@ -315,17 +326,37 @@
                 font-size: 2rem;
             }
 
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
+                padding: 0 1.5rem;
             }
 
             .projects-grid {
                 grid-template-columns: 1fr;
+                padding: 0 1.5rem;
+            }
+
+            .skills-grid {
+                padding: 0 1.5rem;
             }
 
             .section-white {
-                margin: 1rem;
-                padding: 40px 1.5rem;
+                margin: 1rem auto;
+                padding: 40px 0;
+                width: calc(100% - 2rem);
+            }
+
+            .contact-content {
+                padding: 0 1.5rem;
+            }
+
+            footer {
+                width: calc(100% - 2rem);
             }
         }
 
@@ -355,7 +386,8 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="profile-img">RN</div>
+            <!-- Profile image with better positioning -->
+            <img src="profile.jpg" alt="Ravindu Nishshanka" class="profile-img">
             <h1>Hi, I'm Ravindu Shashshimal Nishshanka</h1>
             <p>ISE&I Student | Software Developer | QA Enthusiast</p>
             <a href="#projects" class="btn">View My Work</a>
